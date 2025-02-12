@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/schema/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.reactboard.db.UserMapper">
+    <select id="selectUserList" resultType="HashMap">
+        SELECT IDX,
+        ADDRESS,
+        EMAIL,
+        PHONE_NUMBER,
+        USERNAME
+        FROM TB_USER
+    </select>
+
+    <insert id="insertUser" parameterType="HashMap">
+        INSERT INTO TB_USER
+        (
+            USERNAME
+            ,PASSWORD
+            ,EMAIL
+            ,ADDRESS
+            ,PHONE_NUMBER
+        ) VALUES (
+            #{username}
+            ,#{password}
+            ,#{email}
+            ,#{address}
+            ,#{phone_number}
+        )
+    </insert>
+
+    <select id="selectUserDetail" parameterType="integer" resultType="HashMap">
+        SELECT
+            USERNAME
+            ,EMAIL
+            ,PASSWORD
+            ,ADDRESS
+            ,PHONE_NUMBER
+        FROM TB_USER
+        WHERE 1=1
+            AND IDX = #{idx}
+    </select>
+
+    <update id="updateUser" parameterType="HashMap">
+        UPDATE TB_USER
+        SET USERNAME = #{username},
+            EMAIL = #{email},
+            ADDRESS = #{address},
+            PHONE_NUMBER = #{phone_number}
+        WHERE IDX = #{idx}
+    </update>
+
+
+    <delete id="deleteUser" parameterType="HashMap">
+        DELETE TB_USER
+        WHERE IDX = #{idx}
+    </delete>
+</mapper>
