@@ -93,8 +93,10 @@ public class UserController {
         if (param == null || param.isEmpty()) {
             return new ResponseEntity<>(new ApiResult<>(ApiResultCode.failed), HttpStatus.NOT_FOUND);
         }
-        int resulrcnt = userService.deleteUser(param);
-        if(resulrcnt > 0) {
+
+        int resultCnt = userService.deleteUser(param);
+
+        if(resultCnt > 0) {
             return new ResponseEntity<>(new ApiResult<>(ApiResultCode.succeed) , HttpStatus.OK);
         } else {
             return new ResponseEntity<>(new ApiResult<>(ApiResultCode.failed), HttpStatus.NOT_FOUND);
