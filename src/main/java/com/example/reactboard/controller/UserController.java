@@ -87,7 +87,7 @@ public class UserController {
         }
     }
 
-    public ResponseEntity<ApiResult<ApiResult<Map<String, Object>>> deleteUser(@RequestParam Map<String,Object> param) throws Exception {
+    public ResponseEntity<ApiResult<ApiResult<Map<String, Object>>>> deleteUser(@RequestParam Map<String,Object> param) throws Exception {
         log.info("delete param " + param);
 
         if (param == null || param.isEmpty()) {

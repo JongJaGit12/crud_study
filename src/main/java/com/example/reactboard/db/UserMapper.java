@@ -15,4 +15,6 @@ public interface UserMapper {
     Map<String, Object> selectUserDetail(Integer idx);
 
     int updateUser(Map<String, Object> param);
+
+    int deleteUser(Map<String, Object> param);
 }
